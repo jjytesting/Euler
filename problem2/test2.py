@@ -10,4 +10,12 @@ def test_fibonacci_exist():
 
 
 def test_fibo():
-    assert(fibonacci(10) == example()) 
+    assert(fibonacci(10) == example())
+
+
+def test_fibo_maxnum():
+    assert(fibonacciBeforeMaxWithoutRepeat(100) == example())
+
+
+def test_fibo_maxnum_evenSum():
+    assert(evenSumFibonacci(fibonacciBeforeMaxWithoutRepeat(100)) == 44)
