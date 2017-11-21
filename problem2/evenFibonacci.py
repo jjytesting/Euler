@@ -53,15 +53,15 @@ def fibonacciBeforeMaxWithoutRepeat(maxNum):
 
 print(evenSumFibonacci(fibonacciBeforeMax(4000000)))
 
-# not working
-def fibonacciGenerator(max):
+def fibonacciGenerator(index):
     fibo = []
-    if max == 0:
-        fibo = [1]
-    elif max == 1:
-        fibo = [1,2]
-    elif max > 1:
-        fibo =  [1,2] + [fibonacciGenerator(x-1)[-1] + fibonacciGenerator(x-2)[-1] for x in range(2,max+1)]
+    if index == 0:
+        fibo.append(1)
+    elif index == 1:
+        fibo = fibonacciGenerator(0)
+        fibo.append(2)
+    elif index > 1:
+        fibo =  fibonacciGenerator(1) + [fibonacciGenerator(x-1)[-1] + fibonacciGenerator(x-2)[-1] for x in range(2,index+1)]
     return fibo
 
 print(fibonacciGenerator(10))
