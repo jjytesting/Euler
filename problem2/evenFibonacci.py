@@ -62,8 +62,8 @@ def fibonacciListComprehension(index):
         fibo = fibonacciListComprehension(0)
         fibo.append(1)
     elif index > 1:
-        fibo =  fibonacciListComprehension(1) + [fibonacciListComprehension(x - 1)[- 1] + 
-                fibonacciListComprehension(x - 2)[- 1] for x in range(2, index + 1)]
+        fibo = fibonacciListComprehension(1) + [fibonacciListComprehension(x - 1)[-1] + 
+                fibonacciListComprehension(x - 2)[-1] for x in range(2, index + 1)]
     return fibo
 
 
@@ -74,7 +74,7 @@ def fibonacciGenerator():
     a, b = 0, 1
     while True:
         yield a
-        a, b = b, a+b
+        a, b = b, a + b
 
 
 def makeFibo(maxNum):
@@ -87,7 +87,20 @@ def makeFibo(maxNum):
             fibo.append(i)
     return fibo
 
-print(evenSumFibonacci(makeFibo(4000000)))
+
+
+def calculateEvenSumeFiboUntilMax(maxNum):
+    itr = fibonacciGenerator()
+    total = 0 
+    for i in itr:
+        if i > maxNum:
+            break
+        else:
+            if i % 2 == 0:
+                total += i
+    return total
+
+print(calculateEvenSumeFiboUntilMax(4000000))
 
 
 
